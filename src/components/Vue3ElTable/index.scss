@@ -1,0 +1,220 @@
+
+.user-breadcrumb {
+  margin-bottom: 0;
+}
+
+.application-task-script-container-nav {
+  height: 52px;
+  background-color: #ffffff;
+  padding: 8px 16px 0;
+  border-bottom: 1px solid #E5E8F2;
+  display: flex;
+  align-items: flex-end;
+
+  .application-task-script-container-nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: -2px;
+    font-size: 14px;
+    margin-right: 4px;
+    color: #374774;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    user-select: none;
+
+    &.active {
+      color: #4D6EF2;
+      border-bottom: 3px solid #4D6EF2;
+    }
+
+    &.disabled {
+      color: #A9B3D0;
+      background-color: transparent;
+      cursor: no-drop;
+    }
+
+    .application-task-script-container-nav-item-main {
+      padding: 12px;
+    }
+  }
+}
+
+.application-task-script-container-content {
+  padding: 16px;
+  width: 100%;
+  height: calc(100vh - 64px - 52px - 52px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.application-task-script-container-content-main {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.12);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+
+  .application-task-script-container-content-filter {
+    margin-bottom: 16px;
+  }
+
+  .application-task-script-container-content-table {
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    overflow-y: auto;
+
+    :deep(.light-table) {
+      height: 100%;
+    }
+  }
+
+  .application-task-script-container-content-page {
+    :deep(.light-pagination) {
+      padding-bottom: 0;
+      padding-top: 16px;
+    }
+  }
+}
+
+.application-task-script-container-content-filter {
+  display: flex;
+  justify-content: space-between;
+
+  .application-task-script-container-content-filter-controller {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+
+    :deep(.el-input__inner) {
+      padding: 6px 32px 6px 8px;
+    }
+
+    :deep(.el-form-item) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.application-task-script-dialog-upload {
+  .application-task-script-dialog-upload-local {
+    :deep(.el-form-item) {
+      margin-bottom: 0;
+    }
+
+    :deep(.el-form-item__content) {
+      overflow: hidden;
+      padding-bottom: 16px;
+      margin-bottom: 0;
+    }
+
+    :deep(.el-form-item__error) {
+      top: auto;
+      bottom: 4px;
+    }
+  }
+}
+
+:deep(.application-task-script-container-content-table-operation) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.application-task-script-version-dialog-upload {
+  .task-script-version-dialog-upload-tip {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #dbe2fc;
+    border-radius: 4px;
+    margin-bottom: 8px;
+
+    .task-script-version-dialog-upload-tip-icon {
+      margin-right: 8px;
+
+      i {
+        font-size: 16px;
+        color: #4b6df2;
+      }
+    }
+
+    .task-script-version-dialog-upload-tip-text {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  .task-script-version-dialog-upload-local {
+    :deep(.el-form-item) {
+      margin-bottom: 0;
+    }
+
+    :deep(.el-form-item__content) {
+      overflow: hidden;
+      padding-bottom: 16px;
+      margin-bottom: 0;
+    }
+
+    :deep(.el-form-item__error) {
+      top: auto;
+      bottom: 4px;
+    }
+  }
+}
+
+.task-script-dialog-delete-fail {
+  .task-script-dialog-delete-fail-tip {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #dbe2fc;
+    border-radius: 4px;
+    margin-bottom: 8px;
+
+    .task-script-dialog-delete-fail-tip-icon {
+      margin-right: 8px;
+
+      i {
+        font-size: 16px;
+        color: #4b6df2;
+      }
+    }
+
+    .task-script-dialog-delete-fail-tip-text {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}
+
+.task-script-dialog-detail {
+  &.scroll {
+    padding-right: 8px;
+  }
+
+  .task-script-dialog-detail-use-target {
+    display: flex;
+  }
+
+  .task-script-dialog-detail-table-opacity {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.task-script-dialog-delete-rollback-tip {
+  margin-bottom: 16px;
+}
+
+.task-script-dialog-detail-use {
+  padding-top: 8px;
+}
