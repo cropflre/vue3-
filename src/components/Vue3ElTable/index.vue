@@ -121,7 +121,7 @@ import { demoData } from './mock';
 // import LightBreadcrumb from '../light-breadcrumb/index.vue';
 // import { getPersonalImageListApi, deleteImageApi } from '@/api/application/image/image';
 import AddImageDialog from './components/AddImageDialog.vue';
-import {GetTableListApi} from "../../api/home/list";
+import { GetTableListApi } from '../../api/home/list';
 const navList = ref<INavList>(cloneDeep(arrayNavList)); // 导航列表
 const navActive = ref<MirrorImageScriptType>('tensorflow'); // 选中的tab
 const imageDialog = ref<boolean>(false); // 新建弹窗状态
@@ -143,11 +143,6 @@ function handleClickForNav(target: INavItem) {
   }
 }
 
-const xxxoo = async ()=>{
-  const res = await GetTableListApi()
-  console.log(res)
-}
-xxxoo()
 const formData = ref({
   ImageTableSelectSearch: '',
 });
@@ -191,14 +186,8 @@ const getPersonalImageList = async (isLoading?: boolean) => {
   clearTimeout(rushTimer.value);
   try {
     if (!isLoading) loading.value = true;
-    // const res = await getPersonalImageListApi({
-    //   image_type: navActive.value,
-    // });
-
-    const res = demoData;
-    if (res.result) {
-      imageTableData.value = res.data;
-    }
+    const res = await GetTableListApi();
+    imageTableData.value = res.data.list;
   } finally {
     loading.value = false;
     createRushTimer();
@@ -208,7 +197,7 @@ const rushTimer = ref<any>(null);
 // 轮询
 const createRushTimer = () => {
   if (imageTableData.value.length) {
-    rushTimer.value = setTimeout(() => getPersonalImageList(true), 5000);
+    // rushTimer.value = setTimeout(() => getPersonalImageList(true), 5000);
   }
 };
 
