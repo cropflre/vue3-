@@ -1,16 +1,18 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Vue3ElTable from '../components/Vue3ElTable/index.vue';
+import login from '../views/login/index.vue';
+// import home from '../views/home/index.vue';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Login',
-    component: () => import('../pages/login/Login.vue'),
+    component: login,
   },
-  {
-    path: '/home',
-    name: 'Home',
-    component: () => import('../pages/home/index.vue'),
-  },
+  // {
+  //   path: '/home',
+  //   name: 'Home',
+  //   component: home,
+  // },
   {
     path: '/table',
     name: 'Vue3ElTable',
