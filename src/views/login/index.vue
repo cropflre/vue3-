@@ -1,40 +1,45 @@
 <template>
   <div class="login-content">
     <div class="login-content-form">
-      <div class="login-content-title">杂念屋</div>
+      <div style="margin-bottom: 16px">杂念屋</div>
       <div>
-        <el-form :model="formData" :rules="rules" ref="login" label-width="0px" class="ms-content">
+        <el-form :model="formData" :rules="rules" ref="login">
           <el-form-item prop="username">
-            <el-input v-model="formData.username" size="small" placeholder="username">
+            <el-input size="large" v-model="formData.username" placeholder="username">
               <template #prepend>
-                <el-button :icon="User"></el-button>
+                <el-icon>
+                  <User />
+                </el-icon>
               </template>
             </el-input>
           </el-form-item>
           <el-form-item prop="password">
             <el-input
               type="password"
+              size="large"
               placeholder="password"
               v-model="formData.password"
               @keyup.enter="submitForm(login)"
-              size="small"
+              show-password
             >
               <template #prepend>
-                <el-button :icon="Lock"></el-button>
+                <el-icon>
+                  <Lock />
+                </el-icon>
               </template>
             </el-input>
           </el-form-item>
-          <div class="login-btn">
+          <div style="margin-bottom: 16px">
             <el-button type="primary" @click="submitForm(login)">登录</el-button>
           </div>
-          <p class="login-tips">Tips : 用户名和密码随便填。</p>
+          <el-alert title="Tips : 用户名和密码随便填" type="info" />
         </el-form>
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="login">
 import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
@@ -66,9 +71,7 @@ const login = ref<FormInstance>();
 const submitForm = (formEl: FormInstance | undefined) => {
   if (judgeForm(formEl)) {
     ElMessage.success('登录成功');
-    localStorage.setItem('ms_username', formData.username);
-    localStorage.setItem('ms_keys', '');
-    router.push('/');
+    router.push('/home/table');
   } else {
     ElMessage.error('登录失败');
     return false;
